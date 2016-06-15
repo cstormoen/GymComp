@@ -1,0 +1,30 @@
+﻿@model GymComp.Web.Models.ExternalLoginConfirmationViewModel
+
+@using (Html.BeginForm("ExternalLoginConfirmation", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-inline", role = "form" }))
+{
+    @Html.AntiForgeryToken()
+    <div class="col-md-12">
+        <center>
+            <div class="col-md-3"></div>
+            <div class="col-md-6">
+                <p class="text-info">
+                    @Html.Raw(GymComp.Web.Resources.Strings.LoginSuccess)
+                </p>
+                <div class="form-group">
+                    @Html.TextBoxFor(m => m.DisplayName, new { @class = "form-control", @placeholder = GymComp.Web.Resources.Strings.EnterAName })    
+                </div>
+                <div class="form-group">
+                    <input type="submit" class="btn btn-success" value="@Html.Raw(GymComp.Web.Resources.Strings.Continue)" />
+                </div>
+                <p>
+                    @Html.ValidationMessageFor(m => m.DisplayName, "", new { @class = "text-danger" })
+                </p>
+            </div>
+            <div class="col-md-3"></div>
+        </center>  
+    </div>
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

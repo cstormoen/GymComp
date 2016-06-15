@@ -1,0 +1,15 @@
+﻿@using Microsoft.AspNet.Identity
+
+<h2>
+    <span class="badge">1</span>
+    @if (Request.IsAuthenticated)
+    {
+        <span>@Html.Raw(GymComp.Web.Resources.Strings.Hello) @ViewData["DisplayName"]</span> 
+    }
+    else
+    {
+        <a href="@Url.Action("Login", "Account")">
+            @Html.Raw(GymComp.Web.Resources.Strings.SignInWith) <i class="fa fa-facebook-square"></i> Facebook
+        </a>
+    }
+</h2>

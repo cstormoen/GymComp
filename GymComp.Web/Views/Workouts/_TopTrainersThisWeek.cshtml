@@ -1,0 +1,24 @@
+﻿@model IEnumerable<GymComp.Web.Models.TopTrainerThisWeek>
+
+<h2><i style="color: rgb(255, 198, 0);" class="fa fa-star"></i> @Html.Raw(GymComp.Web.Resources.Strings.TopTrainersLastSevenDays)</h2>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>@Html.Raw(GymComp.Web.Resources.Strings.Name)</th>
+            <th class="right">@Html.Raw(GymComp.Web.Resources.Strings.NumberOfTimesTrainedLastSevenDays)</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var trainer in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(model => trainer.Name)
+                </td>
+                <td class="right">
+                    @Html.DisplayFor(model => trainer.NumberOfWorkouts)
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

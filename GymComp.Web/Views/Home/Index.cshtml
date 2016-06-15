@@ -1,0 +1,30 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<div class="row">
+    <div class="col-md-6">
+        <div class="col-md-12">
+            @Html.Partial("_LoginPartial")
+        </div>
+        <div class="col-md-12">
+            <h2>
+                <span class="badge">2</span>
+                @Html.Raw(GymComp.Web.Resources.Strings.Add) <i class="fa fa-bicycle"></i> @Html.Raw(GymComp.Web.Resources.Strings.Workout)
+            </h2>
+            @if(Request.IsAuthenticated)
+            {
+                @Html.Action("_Create", "Workouts")
+            }
+        </div>
+        <div class="col-md-12">
+            <h2>
+                <span class="badge">3</span>
+                @Html.Raw(GymComp.Web.Resources.Strings.Compare) <i class="fa fa-area-chart"></i> @Html.Raw(GymComp.Web.Resources.Strings.YourSelfWithFriends)
+            </h2>
+        </div>
+    </div>
+    <div class="col-md-6">
+        @Html.Action("_TopTrainersThisWeek", "Workouts")
+    </div>
+</div>

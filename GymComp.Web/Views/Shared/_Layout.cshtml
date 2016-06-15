@@ -1,0 +1,34 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@Html.Raw(GymComp.Web.Resources.Strings.ApplicationTitle)</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/bundles/bootstrap")
+</head>
+<body>
+    <div class="container body-content">
+        <div class="row">
+            <div class="col-md-12">
+                <center>
+                    <img src="~/Content/Cartoon-Man-Trying-To-Lift-Weights.jpg" class="img-responsive" />
+                </center>
+            </div>
+        </div>
+        <hr />
+        @RenderBody()
+    </div>
+
+    <script>
+        $('.input-group.date').datepicker({
+            todayHighlight: true,
+            format: "dd/mm/yyyy",
+            language: "@Html.Raw(System.Globalization.CultureInfo.CurrentCulture)"
+        });
+    </script>
+</body>
+</html>
